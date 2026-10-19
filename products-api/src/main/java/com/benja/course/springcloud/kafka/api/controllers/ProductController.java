@@ -1,6 +1,7 @@
 package com.benja.course.springcloud.kafka.api.controllers;
 
 import com.benja.course.springcloud.kafka.api.model.dto.ProductDto;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +21,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<?> createProduct(@Valid @RequestBody ProductDto productDto) {
         productCommandService.sendCreate(productDto);
         return ResponseEntity.ok().body(Map.of("message", "Product creation command sent successfully"));
     }
