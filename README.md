@@ -1,6 +1,6 @@
 # Event-Driven Microservices Architecture with Spring Boot & Apache Kafka
 
-A production-ready reference architecture demonstrating the design and implementation of event-driven distributed microservices using modern Java, Spring Boot 3, Spring Cloud Stream, and Apache Kafka.
+A production-ready reference architecture demonstrating the design and implementation of event-driven distributed microservices using modern Java, Spring Boot 4, Spring Cloud Stream, and Apache Kafka.
 
 ---
 
