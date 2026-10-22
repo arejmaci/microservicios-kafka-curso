@@ -3,7 +3,10 @@ package com.benja.course.springcloud.kafka.command.services;
 import com.benja.course.springcloud.kafka.command.entities.Product;
 import com.benja.course.springcloud.kafka.command.model.dto.ProductDto;
 import com.benja.course.springcloud.kafka.command.repositories.ProductRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class ProductServiceImp implements ProductService {
 
     private final ProductRepository productRepository;
@@ -13,6 +16,7 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
+    @Transactional
     public ProductDto createProduct(ProductDto dto) {
 
         Product product = this.productRepository.save(new Product(null, dto.name(), dto.price()));
