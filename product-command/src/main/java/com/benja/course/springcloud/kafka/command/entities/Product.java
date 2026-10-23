@@ -14,7 +14,6 @@ public class Product {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @Column(precision = 10, scale = 2)
     private Double price;
 
     @Column(name = "created_at", updatable = false)
