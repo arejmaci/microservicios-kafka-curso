@@ -2,9 +2,11 @@ package com.benja.course.springcloud.kafka.command.services;
 
 import com.benja.course.springcloud.kafka.command.entities.Product;
 import com.benja.course.springcloud.kafka.command.model.dto.ProductDto;
+import com.benja.course.springcloud.kafka.command.model.mapper.Mappers;
 import com.benja.course.springcloud.kafka.command.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import static com.benja.course.springcloud.kafka.command.model.mapper.Mappers.toDto;
 
 @Service
 public class ProductServiceImp implements ProductService {
@@ -18,8 +20,7 @@ public class ProductServiceImp implements ProductService {
     @Override
     @Transactional
     public ProductDto createProduct(ProductDto dto) {
-
-        Product product = this.productRepository.save(new Product(null, dto.name(), dto.price()));
-        return new ProductDto(product.getId(),product.getName(),product.getPrice());
+        Product product = productRepository.save(Mappers.toEntity(dto));
+        return toDto(product);
     }
 }
